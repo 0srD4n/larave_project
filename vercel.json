@@ -25,7 +25,6 @@
         "DB_PORT": "19946",
         "DB_DATABASE": "defaultdb",
         "DB_USERNAME": "avnadmin",
-        "DB_PASSWORD": "AVNS_FRVhr4DNHMEXe7bCQE_",
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie"
