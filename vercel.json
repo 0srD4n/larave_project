@@ -1,0 +1,33 @@
+{
+    "version": 2,
+    "framework": null,
+    "functions": {
+        "api/index.php": { "runtime": "vercel-php@0.6.0" }
+    },
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
+        }
+    ],
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "true",
+        "APP_URL": "https://dantca.com",
+        "TAHUN_AJARAN": "2023/2024",
+        "APP_CONFIG_CACHE": "/tmp/config.php",
+        "APP_EVENTS_CACHE": "/tmp/events.php",
+        "APP_PACKAGES_CACHE": "/tmp/packages.php",
+        "APP_ROUTES_CACHE": "/tmp/routes.php",
+        "APP_SERVICES_CACHE": "/tmp/services.php",
+        "VIEW_COMPILED_PATH": "/tmp",
+        "DB_HOST": "mysql-8c0dfb8-tradertc21-ae93.d.aivencloud.com",
+        "DB_PORT": "19946",
+        "DB_DATABASE": "defaultdb",
+        "DB_USERNAME": "avnadmin",
+        "DB_PASSWORD": "AVNS_FRVhr4DNHMEXe7bCQE_",
+        "CACHE_DRIVER": "array",
+        "LOG_CHANNEL": "stderr",
+        "SESSION_DRIVER": "cookie"
+    }
+}
