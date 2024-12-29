@@ -43,7 +43,9 @@ class AdminController extends Controller
         if (Auth::user()->status != 1) {
             return redirect()->back()->with('error', 'Only super administrators can manage admins');
         }
-        return view('admin.create');
+        return view('admin.create', [
+            'title' => 'ADD',
+        ]);
     }
 
     /**
@@ -80,7 +82,10 @@ class AdminController extends Controller
         if (Auth::user()->status != 1) {
             return redirect()->back()->with('error', 'Only super administrators can view admin details');
         }
-        return view('admin.show', compact('admin'));
+        return view('admin.show', [
+            'title' => 'ADD',
+            'admin' => $admin
+        ]);
     }
 
     /**
@@ -91,7 +96,10 @@ class AdminController extends Controller
         if (Auth::user()->status != 1) {
             return redirect()->back()->with('error', 'Only super administrators can edit admins');
         }
-        return view('admin.edit', compact('admin'));
+        return view('admin.edit', [
+            'title' => 'ADD',
+            'admin' => $admin
+        ]);
     }
 
     /**
@@ -145,6 +153,7 @@ class AdminController extends Controller
             if ($student) {
                 $lateRecords = Keterlambatan::where('user_id', $student->id)->get();
                 return view('admin.addfunc', [
+                    'title' => 'Search',
                     'student' => $student,
                     'lateRecords' => $lateRecords
                 ]);
@@ -181,7 +190,9 @@ class AdminController extends Controller
         if (Auth::user()->status != 1) {
             return redirect()->back()->with('error', 'Only administrators can access the control panel');
         }
-        return view('admin.controlppaneladmin');
+        return view('admin.controlppaneladmin', [
+            'title' => 'Control Panel',
+        ]);
     }
     public function destroySession($id)
     {

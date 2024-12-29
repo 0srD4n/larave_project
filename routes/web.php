@@ -1,18 +1,22 @@
 <?php
 
-use App\Http\Controllers\captcha;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\status\AdminController;
-use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\URL;
+if(config('app.env') == 'production'){
+    URL::forceScheme('https');
+}
 
+    use App\Http\Controllers\captcha;
+    use Illuminate\Support\Facades\Auth;
+    use Illuminate\Support\Facades\Route;
+    use App\Http\Controllers\status\AdminController;
+    use App\Http\Controllers\ProfileController;
 
 // route dashboard
 Route::middleware('auth:admin')->group(function () {
     Route::resource('admin', AdminController::class);
     Route::get('/dashboard/admin', function () {
         if (Auth::check() && Auth::user()->status < 3) {
-            return view('dashboard.dashadmin');
+            return view('dashboard.dashadmin', ['title' => 'Dashboard Admin']);
         }
         return redirect()->route('login');
     })->name('admin');
@@ -39,13 +43,13 @@ Route::middleware('auth:admin')->group(function () {
 });
 Route::middleware('auth:ortu')->group(function () {
     Route::get('/dashboard/ortu', function () {
-        return view('dashboard.dashortu');
+        return view('dashboard.dashortu', ['title' => 'Dashboard Orang Tua']);
     })->name('ortu');
 });
 
 Route::middleware('auth:web')->group(function () {
     Route::get('/dashboard/siswa', function () {
-        return view('dashboard.dashsis');
+        return view('dashboard.dashsis', ['title' => 'Dashboard Siswa']);
     })->name('siswa');
 });
 

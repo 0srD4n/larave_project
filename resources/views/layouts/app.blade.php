@@ -4,12 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <meta http-equiv="Content-Encoding" content="gzip">
+        <meta http-equiv="Access-Control-Allow-Origin" content="">
+        <meta http-equiv="Cache-Control" content="max-age=31536000">
+        <title>{{ config('app.name', 'Laravel') }} | {{ $title ?? ''}}</title>
+        <link rel="stylesheet" href="{{ asset('css/app-bysBjyKn.css') }}">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -32,5 +31,6 @@
                 {{ $slot }}
             </main>
         </div>
+        <script src="{{ asset('js/app-BPnfBaih.js') }}"></script>
     </body>
 </html>

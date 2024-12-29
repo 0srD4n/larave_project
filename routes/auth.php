@@ -1,5 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\URL;
+if(config('app.env') == 'production'){
+    URL::forceScheme('https');
+}
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\NewPasswordController;
